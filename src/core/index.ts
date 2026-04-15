@@ -15,8 +15,8 @@ export type InferComputed<C extends ComputedDef<any>> = {
 
 export type InferActions<A extends ActionDef<any>> = {
   [K in keyof A]: A[K] extends (state: any, ...args: infer P) => infer R
-    ? (...args: P) => R
-    : never
+  ? (...args: P) => R
+  : never
 }
 
 export type SetState<T extends object> = (
@@ -228,13 +228,13 @@ export function create<
         return (async () => {
           if (loadingKey in state) {
             setState((draft) => {
-              ;(draft as Record<string, unknown>)[loadingKey as string] = true
+              ; (draft as Record<string, unknown>)[loadingKey as string] = true
             })
           }
 
           if (errorKey in state) {
             setState((draft) => {
-              ;(draft as Record<string, unknown>)[errorKey as string] = null
+              ; (draft as Record<string, unknown>)[errorKey as string] = null
             })
           }
 
@@ -251,14 +251,14 @@ export function create<
           } catch (error) {
             if (errorKey in state) {
               setState((draft) => {
-                ;(draft as Record<string, unknown>)[errorKey as string] = error
+                ; (draft as Record<string, unknown>)[errorKey as string] = error
               })
             }
             throw error
           } finally {
             if (loadingKey in state) {
               setState((draft) => {
-                ;(draft as Record<string, unknown>)[loadingKey as string] = false
+                ; (draft as Record<string, unknown>)[loadingKey as string] = false
               })
             }
           }

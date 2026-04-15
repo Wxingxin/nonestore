@@ -1,4 +1,4 @@
-import type { Middleware, SetState } from './core'
+import type { Middleware, SetState } from '../core'
 
 export function logger<T extends object>(options: {
   collapsed?: boolean

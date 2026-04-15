@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, screen, act } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
-import { createStore } from './index'
+import { createStore } from '../index'
 
 describe('createStore', () => {
   it('re-renders consumers when selected state changes', () => {

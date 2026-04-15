@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest'
-import { create } from './index'
+import { create } from '../index'
 
 describe('create', () => {
   it('updates state, computes derived values, and notifies selectors', () => {

@@ -1,6 +1,6 @@
 import { useSyncExternalStore } from 'react'
-import { create } from './core'
-import type { ActionDef, ComputedDef, Selector, Store, StoreConfig, StoreConfigShape } from './core'
+import { create } from '../core'
+import type { ActionDef, ComputedDef, Selector, Store, StoreConfig, StoreConfigShape } from '../core'
 
 export function useStore<
   T extends object,
@@ -32,11 +32,11 @@ export function createStore<
   initialState: T,
   config?: StoreConfig<T, C, A> & StoreConfigShape<T>
 ): [
-  <S = ReturnType<Store<T, C, A>['getState']>>(
-    selector?: Selector<ReturnType<Store<T, C, A>['getState']>, S>
-  ) => S,
-  Store<T, C, A>
-] {
+    <S = ReturnType<Store<T, C, A>['getState']>>(
+      selector?: Selector<ReturnType<Store<T, C, A>['getState']>, S>
+    ) => S,
+    Store<T, C, A>
+  ] {
   const store = create(initialState, config)
 
   function useBoundStore<S = ReturnType<Store<T, C, A>['getState']>>(
