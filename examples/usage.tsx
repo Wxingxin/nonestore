@@ -8,13 +8,13 @@ const [useCounter, counterStore] = createStore(
   },
   {
     computed: {
-      doubled: (state: { count: number }) => state.count * 2,
+      doubled: (state) => state.count * 2,
     },
     actions: {
-      increment: (state: { count: number }) => {
+      increment: (state) => {
         state.count += 1
       },
-      add: (state: { count: number }, amount: number) => {
+      add: (state, amount: number) => {
         state.count += amount
       },
     },

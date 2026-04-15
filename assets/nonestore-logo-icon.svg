@@ -1,0 +1,46 @@
+<svg width="200" viewBox="0 0 176 270" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>nonestore icon</title>
+  <desc>nonestore jellyfish mascot icon without text</desc>
+
+  <defs>
+    <style>
+      .jelly-body { fill: #b9a0e8; opacity: 0.92; }
+      .jelly-inner { fill: #d8c8f8; opacity: 0.7; }
+      .jelly-shine { fill: #f0eaff; opacity: 0.5; }
+      .jelly-tentacle { stroke: #b9a0e8; stroke-width: 2; fill: none; stroke-linecap: round; opacity: 0.75; }
+      .jelly-dot { fill: #d8c8f8; opacity: 0.6; }
+      @media (prefers-color-scheme: dark) {
+        .jelly-body { fill: #7c4fc4; }
+        .jelly-inner { fill: #a57de8; }
+        .jelly-shine { fill: #c9aff8; }
+        .jelly-tentacle { stroke: #a57de8; }
+        .jelly-dot { fill: #c9aff8; }
+      }
+    </style>
+  </defs>
+
+  <!-- translate so bell starts at x=0: original cx=340 → shift -252, cy top=75 → shift -65 -->
+  <g transform="translate(-252,-65)">
+    <path d="M252,165 Q252,80 340,75 Q428,80 428,165 Z" class="jelly-body"/>
+    <rect x="252" y="165" width="176" height="18" class="jelly-body"/>
+    <path d="M278,165 Q278,105 340,100 Q402,105 402,165 Z" class="jelly-inner"/>
+    <ellipse cx="312" cy="120" rx="22" ry="14" class="jelly-shine" transform="rotate(-20,312,120)"/>
+    <circle cx="330" cy="145" r="4" class="jelly-dot"/>
+    <circle cx="350" cy="140" r="3" class="jelly-dot"/>
+    <circle cx="365" cy="152" r="3.5" class="jelly-dot"/>
+    <circle cx="318" cy="155" r="2.5" class="jelly-dot"/>
+    <path d="M290,183 C285,205 295,220 288,240 C281,260 292,275 285,298" class="jelly-tentacle"/>
+    <path d="M308,183 C304,210 314,228 308,250 C302,272 312,285 306,310" class="jelly-tentacle" opacity="0.65"/>
+    <path d="M340,183 C336,215 348,232 340,258 C332,280 344,295 338,320" class="jelly-tentacle"/>
+    <path d="M372,183 C376,210 366,228 372,250 C378,272 368,285 374,310" class="jelly-tentacle" opacity="0.65"/>
+    <path d="M390,183 C395,205 385,220 392,240 C399,260 388,275 395,298" class="jelly-tentacle"/>
+    <path d="M300,183 C298,198 304,208 300,222" class="jelly-tentacle" opacity="0.45"/>
+    <path d="M324,183 C322,200 330,212 326,228" class="jelly-tentacle" opacity="0.45"/>
+    <path d="M356,183 C358,200 350,212 354,228" class="jelly-tentacle" opacity="0.45"/>
+    <path d="M380,183 C382,198 376,208 380,222" class="jelly-tentacle" opacity="0.45"/>
+    <circle cx="322" cy="138" r="5" fill="#1a1a1a" opacity="0.6"/>
+    <circle cx="358" cy="138" r="5" fill="#1a1a1a" opacity="0.6"/>
+    <circle cx="324" cy="136" r="2" fill="white" opacity="0.7"/>
+    <circle cx="360" cy="136" r="2" fill="white" opacity="0.7"/>
+  </g>
+</svg>

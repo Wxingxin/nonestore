@@ -15,8 +15,8 @@ export type InferComputed<C extends ComputedDef<any>> = {
 
 export type InferActions<A extends ActionDef<any>> = {
   [K in keyof A]: A[K] extends (state: any, ...args: infer P) => infer R
-  ? (...args: P) => R
-  : never
+    ? (...args: P) => R
+    : never
 }
 
 export type SetState<T extends object> = (
@@ -32,16 +32,21 @@ export type MiddlewareAPI<T extends object> = {
   setState: SetState<T>
 }
 
+export type StoreConfigShape<T extends object> = {
+  computed?: ComputedDef<T>
+  actions?: ActionDef<T>
+  middlewares?: Middleware<T>[]
+  devtools?: boolean
+  persist?: PersistConfig<T>
+}
+
 export type StoreConfig<
   T extends object,
   C extends ComputedDef<T> = {},
   A extends ActionDef<T> = {}
-> = {
+> = Omit<StoreConfigShape<T>, 'computed' | 'actions'> & {
   computed?: C
   actions?: A
-  middlewares?: Middleware<T>[]
-  devtools?: boolean
-  persist?: PersistConfig<T>
 }
 
 export type PersistConfig<T> = {
@@ -123,11 +128,11 @@ function connectDevtools<T extends object>(name: string, getState: () => T): Dev
 
 export function create<
   T extends object,
-  C extends ComputedDef<T> = {},
-  A extends ActionDef<T> = {}
+  const C extends ComputedDef<T> = {},
+  const A extends ActionDef<T> = {}
 >(
   initialState: T,
-  config: StoreConfig<T, C, A> = {}
+  config: (StoreConfig<T, C, A> & StoreConfigShape<T>) | undefined = {}
 ): Store<T, C, A> {
   const { computed = {} as C, actions = {} as A, middlewares = [], devtools = false, persist } = config
 
@@ -223,13 +228,13 @@ export function create<
         return (async () => {
           if (loadingKey in state) {
             setState((draft) => {
-              ; (draft as Record<string, unknown>)[loadingKey as string] = true
+              ;(draft as Record<string, unknown>)[loadingKey as string] = true
             })
           }
 
           if (errorKey in state) {
             setState((draft) => {
-              ; (draft as Record<string, unknown>)[errorKey as string] = null
+              ;(draft as Record<string, unknown>)[errorKey as string] = null
             })
           }
 
@@ -246,14 +251,14 @@ export function create<
           } catch (error) {
             if (errorKey in state) {
               setState((draft) => {
-                ; (draft as Record<string, unknown>)[errorKey as string] = error
+                ;(draft as Record<string, unknown>)[errorKey as string] = error
               })
             }
             throw error
           } finally {
             if (loadingKey in state) {
               setState((draft) => {
-                ; (draft as Record<string, unknown>)[loadingKey as string] = false
+                ;(draft as Record<string, unknown>)[loadingKey as string] = false
               })
             }
           }
